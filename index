@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sea Pool Gallery</title>
+
+<style>
+
+/* ==============================
+   GENERAL
+   ============================== */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+
+    background: #242424 !important;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+
+/* ==============================
+   GALLERY
+   ============================== */
+
+.gallery {
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+    padding: 15px 10px;
+
+    text-align: center;
+
+    background: #242424 !important;
+}
+
+
+/* ==============================
+   IMAGE CONTAINER
+   ============================== */
+
+.image-container {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+
+/* ==============================
+   IMAGE
+   ============================== */
+
+#galleryImage {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 45%;
+    max-height: 260px;
+
+    object-fit: contain;
+
+    border-radius: 3px;
+}
+
+
+/* ==============================
+   NAVIGATION
+   ============================== */
+
+.nav-button {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    padding: 0;
+
+    border: 1px solid #555555;
+    border-radius: 50%;
+
+    background: #333333 !important;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+
+.nav-button:hover {
+    background: #444444 !important;
+}
+
+
+.previous {
+    left: 15%;
+}
+
+
+.next {
+    right: 15%;
+}
+
+
+/* ==============================
+   INFORMATION
+   ============================== */
+
+.pool-name {
+    margin-top: 5px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #ffffff;
+}
+
+
+.pool-country {
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #cccccc;
+}
+
+
+/* ==============================
+   AUTHOR
+   ============================== */
+
+.pool-author {
+    margin-top: 5px;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    color: #aaaaaa;
+}
+
+
+/* ==============================
+   COUNTER
+   ============================== */
+
+.counter {
+    margin-top: 10px;
+
+    font-size: 11px;
+
+    color: #999999;
+}
+
+
+/* ==============================
+   SMALL SCREENS
+   ============================== */
+
+@media (max-width: 700px) {
+
+    .gallery {
+        padding: 10px 5px;
+    }
+
+    #galleryImage {
+        max-width: 55%;
+        max-height: 220px;
+    }
+
+    .previous {
+        left: 5%;
+    }
+
+    .next {
+        right: 5%;
+    }
+
+    .nav-button {
+        width: 30px;
+        height: 30px;
+
+        font-size: 18px;
+    }
+
+    .pool-name {
+        font-size: 16px;
+    }
+
+    .pool-country {
+        font-size: 12px;
+    }
+
+    .pool-author {
+        font-size: 11px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="gallery">
+
+
+    <!-- IMAGE -->
+
+    <div class="image-container">
+
+        <button
+            class="nav-button previous"
+            onclick="previousImage()"
+            aria-label="Previous image">
+
+            &#10094;
+
+        </button>
+
+
+        <img
+            id="galleryImage"
+            src=""
+            alt="Sea pool">
+
+
+        <button
+            class="nav-button next"
+            onclick="nextImage()"
+            aria-label="Next image">
+
+            &#10095;
+
+        </button>
+
+    </div>
+
+
+    <!-- INFORMATION -->
+
+    <div
+        class="pool-name"
+        id="poolName">
+    </div>
+
+
+    <div
+        class="pool-country"
+        id="poolCountry">
+    </div>
+
+
+    <div
+        class="pool-author"
+        id="poolAuthor">
+    </div>
+
+
+    <!-- COUNTER -->
+
+    <div
+        class="counter"
+        id="counter">
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* ==============================
+   IMAGES
+   ============================== */
+
+const images = [
+
+    {
+        name: "Avalon Rock Pool",
+        country: "Australia",
+        author: "Thomas Yohei",
+        url: "https://images.unsplash.com/photo-1599552894420-661f2ae0da78?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        name: "La Libertad Sea Pool",
+        country: "El Salvador",
+        author: "Meeg von Haartman",
+        url: "https://images.unsplash.com/photo-1735770515751-9b49f00d2d8c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        name: "Piscina Azenhas do Mar",
+        country: "Portugal",
+        author: "Bea Vallejo",
+        url: "https://images.unsplash.com/photo-1660083310880-441eb40f40bf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        name: "Glencairn Tidal Pool",
+        country: "South Africa",
+        author: "Simon Barber",
+        url: "https://images.unsplash.com/photo-1662537748445-b2e851d18366?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+
+    {
+        name: "Bude Sea Pool",
+        country: "United Kingdom",
+        author: "Nick Russil",
+        url: "https://images.unsplash.com/photo-1639406077808-9dd59d374b63?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+
+];
+
+
+/* ==============================
+   CURRENT IMAGE
+   ============================== */
+
+let currentIndex = 0;
+
+
+/* ==============================
+   UPDATE GALLERY
+   ============================== */
+
+function updateGallery() {
+
+    const current = images[currentIndex];
+
+    document.getElementById("galleryImage").src =
+        current.url;
+
+    document.getElementById("galleryImage").alt =
+        current.name;
+
+    document.getElementById("poolName").textContent =
+        current.name;
+
+    document.getElementById("poolCountry").textContent =
+        current.country;
+
+    document.getElementById("poolAuthor").textContent =
+        "Author: " + current.author;
+
+    document.getElementById("counter").textContent =
+        (currentIndex + 1) + " / " + images.length;
+}
+
+
+/* ==============================
+   NEXT
+   ============================== */
+
+function nextImage() {
+
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0;
+    }
+
+    updateGallery();
+}
+
+
+/* ==============================
+   PREVIOUS
+   ============================== */
+
+function previousImage() {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+    }
+
+    updateGallery();
+}
+
+
+/* ==============================
+   START
+   ============================== */
+
+updateGallery();
+
+</script>
+
+
+</body>
+
+</html>
