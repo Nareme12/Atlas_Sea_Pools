@@ -29,9 +29,9 @@
     .gallery {
         width: 100%;
         height: 100vh;
-        max-width: 700px;
+        max-width: 450px;
         margin: 0 auto;
-        padding: 20px;
+        padding: 8px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -39,17 +39,19 @@
         overflow: hidden;
     }
 
+    /* NOMBRE */
     .pool-name {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 600;
         text-align: center;
-        margin-bottom: 12px;
+        margin-bottom: 6px;
         color: #ffffff;
     }
 
+    /* MARCO FIJO */
     .image-container {
-        width: 100%;
-        height: 260px;
+        width: 150px;
+        height: 100px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -57,52 +59,56 @@
         flex-shrink: 0;
     }
 
+    /* TODAS LAS IMÁGENES TIENEN EL MISMO TAMAÑO */
     .image-container img {
-        max-width: 45%;
-        max-height: 260px;
-        width: auto;
-        height: auto;
-        object-fit: contain;
+        width: 150px;
+        height: 100px;
+        object-fit: cover;
         display: block;
         user-select: none;
         -webkit-user-drag: none;
+        pointer-events: none;
     }
 
+    /* PAÍS Y AUTOR */
     .details {
-        width: 100%;
+        width: 150px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 12px;
-        font-size: 14px;
+        margin-top: 5px;
+        font-size: 12px;
         color: #d8d8d8;
+        gap: 6px;
     }
 
     .country {
         text-align: left;
+        white-space: nowrap;
     }
 
     .author {
         text-align: right;
         font-style: italic;
+        white-space: nowrap;
     }
 
+    /* NAVEGACIÓN */
     .navigation {
-        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 18px;
-        gap: 25px;
+        margin-top: 7px;
+        gap: 15px;
     }
 
     .arrow {
         background: transparent;
         border: none;
         color: #ffffff;
-        font-size: 28px;
+        font-size: 21px;
         cursor: pointer;
-        padding: 4px 12px;
+        padding: 2px 6px;
         line-height: 1;
     }
 
@@ -111,9 +117,9 @@
     }
 
     .counter {
-        min-width: 45px;
+        min-width: 32px;
         text-align: center;
-        font-size: 14px;
+        font-size: 12px;
         color: #cccccc;
     }
 </style>
@@ -128,13 +134,15 @@
     </div>
 
     <div class="image-container">
-        <img id="poolImage"
-             src="https://images.unsplash.com/photo-1599552894420-661f2ae0da78?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-             alt="Avalon Rock Pool"
-             draggable="false">
+        <img
+            id="poolImage"
+            src="https://images.unsplash.com/photo-1599552894420-661f2ae0da78?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Avalon Rock Pool"
+            draggable="false">
     </div>
 
     <div class="details">
+
         <div class="country" id="poolCountry">
             Country: Australia
         </div>
@@ -142,11 +150,15 @@
         <div class="author" id="poolAuthor">
             Author: Thomas Yohei
         </div>
+
     </div>
 
     <div class="navigation">
 
-        <button class="arrow" onclick="previousImage()" aria-label="Previous image">
+        <button
+            class="arrow"
+            onclick="previousImage()"
+            aria-label="Previous image">
             &#8592;
         </button>
 
@@ -154,7 +166,10 @@
             1 / 5
         </div>
 
-        <button class="arrow" onclick="nextImage()" aria-label="Next image">
+        <button
+            class="arrow"
+            onclick="nextImage()"
+            aria-label="Next image">
             &#8594;
         </button>
 
@@ -204,6 +219,7 @@ const pools = [
 
 ];
 
+
 let currentIndex = 0;
 
 
@@ -213,11 +229,14 @@ function showImage(index) {
 
     const pool = pools[currentIndex];
 
-    document.getElementById("poolName").textContent = pool.name;
+    document.getElementById("poolName").textContent =
+        pool.name;
 
-    document.getElementById("poolImage").src = pool.image;
+    document.getElementById("poolImage").src =
+        pool.image;
 
-    document.getElementById("poolImage").alt = pool.name;
+    document.getElementById("poolImage").alt =
+        pool.name;
 
     document.getElementById("poolCountry").textContent =
         "Country: " + pool.country;
