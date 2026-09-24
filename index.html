@@ -122,7 +122,7 @@ html, body {
     color: #dddddd;
 }
 
-.author {
+.photography {
     font-style: italic;
 }
 
@@ -226,18 +226,18 @@ html, body {
             <div class="data">
 
                 <div class="label">
-                    Author
+                    Photography
                 </div>
 
                 <div
-                    class="value author"
-                    id="poolAuthor">
+                    class="value photography"
+                    id="poolPhotography">
                 </div>
 
             </div>
 
 
-            <!-- NAVIGATION UNDER AUTHOR -->
+            <!-- NAVIGATION UNDER PHOTOGRAPHY -->
 
             <div class="navigation">
 
@@ -282,42 +282,42 @@ const pools = [
     {
         name: "Avalon Rock Pool",
         country: "Australia",
-        author: "Thomas Yohei",
+        photography: "Thomas Yohei",
         image: "https://images.unsplash.com/photo-1599552894420-661f2ae0da78?q=80&w=1633&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
 
     {
         name: "La Libertad Sea Pool",
         country: "El Salvador",
-        author: "Meeg von Haartman",
+        photography: "Meeg von Haartman",
         image: "https://images.unsplash.com/photo-1735770515751-9b49f00d2d8c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
 
     {
         name: "Piscina Azenhas do Mar",
         country: "Portugal",
-        author: "Bea Vallejo",
+        photography: "Bea Vallejo",
         image: "https://images.unsplash.com/photo-1660083310880-441eb40f40bf?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
 
     {
         name: "Charco del Palo",
         country: "Spain",
-        author: "Jordi Vich Navarro",
+        photography: "Jordi Vich Navarro",
         image: "https://images.unsplash.com/photo-1719338388195-3587dad59abf?q=80&w=1503&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
 
     {
         name: "Glencairn Tidal Pool",
         country: "South Africa",
-        author: "Simon Barber",
+        photography: "Simon Barber",
         image: "https://images.unsplash.com/photo-1662537748445-b2e851d18366?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
 
     {
         name: "Bude Sea Pool",
         country: "United Kingdom",
-        author: "Nick Russil",
+        photography: "Nick Russil",
         image: "https://images.unsplash.com/photo-1639406077808-9dd59d374b63?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
 
@@ -354,8 +354,8 @@ function showImage(index) {
         pool.country;
 
 
-    document.getElementById("poolAuthor").textContent =
-        pool.author;
+    document.getElementById("poolPhotography").textContent =
+        pool.photography;
 
 
     document.getElementById("counter").textContent =
