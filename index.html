@@ -29,7 +29,7 @@
     .gallery {
         width: 100%;
         height: 100vh;
-        max-width: 500px;
+        max-width: 600px; /* Ampliado para acomodar imágenes más anchas */
         margin: 0 auto;
         padding: 8px;
         display: flex;
@@ -49,9 +49,9 @@
         color: #ffffff;
     }
 
-    /* MARCO FIJO PARA TODAS LAS IMÁGENES */
+    /* MARCO FIJO PARA TODAS LAS IMÁGENES (Alto: 100px, Ancho: 280px) */
     .image-container {
-        width: 180px;
+        width: 280px; /* Incrementado de 180px a 280px */
         height: 100px;
         display: flex;
         justify-content: center;
@@ -62,7 +62,7 @@
 
     /* TODAS LAS IMÁGENES TIENEN EL MISMO TAMAÑO */
     .image-container img {
-        width: 180px;
+        width: 280px; /* Incrementado de 180px a 280px */
         height: 100px;
         object-fit: cover;
         display: block;
@@ -73,7 +73,7 @@
 
     /* PAÍS Y AUTOR */
     .details {
-        width: 180px;
+        width: 280px; /* Alineado con el nuevo ancho de la imagen */
         display: flex;
         justify-content: space-between;
         align-items: center;
